@@ -10,26 +10,15 @@ public abstract class Criaturas {
 	protected Set<AfinidadElementalEnum> afinidades = new HashSet<>();
 	protected ComportamientoEmocionalEnum comportamiento;
 
-	public Criaturas(String nombre, AfinidadElementalEnum afinidadInicial,
-			ComportamientoEmocionalEnum comportamiento) {
+	public Criaturas(String nombre, AfinidadElementalEnum afinidadInicial, ComportamientoEmocionalEnum comportamiento) {
 		super();
 		this.nombre = nombre;
 		this.energia = 0;
-<<<<<<< HEAD
-		this.comportamiento = comportamiento.Tranquilo;
-=======
+
 		this.comportamiento = ComportamientoEmocionalEnum.Tranquilo;
->>>>>>> master
-		
+
 		this.afinidades.add(afinidadInicial);
 	}
-	
-<<<<<<< HEAD
-	// metodos
-	public abstract void entrenar(int intensidad);
-=======
-
->>>>>>> master
 
 	// getters y setters
 	public String getNombre() {
@@ -41,7 +30,7 @@ public abstract class Criaturas {
 	}
 
 	public Integer getEnergía() {
-		if(energia < 0) {
+		if (energia < 0) {
 			energia = 0;
 		}
 		if (energia > 200) {
@@ -61,32 +50,15 @@ public abstract class Criaturas {
 	public void setComportamiento(ComportamientoEmocionalEnum comportamiento) {
 		this.comportamiento = comportamiento;
 	}
-	
-    public Set<AfinidadElementalEnum> getAfinidadElemental() {
-        return afinidades;
-    }
 
-<<<<<<< HEAD
-    // agregar afinidades
-    public void addAfinidad(AfinidadElementalEnum afinidad) {
-        this.afinidades.add(afinidad);
-    }
+	public Set<AfinidadElementalEnum> getAfinidadElemental() {
+		return afinidades;
+	}
 
-    // reemplazar TODAS por una
-=======
-    
-    public void addAfinidad(AfinidadElementalEnum afinidad) {
-        this.afinidades.add(afinidad);
-    }
-    
+	public void setAfinidadSolo(AfinidadElementalEnum afinidad) {
 
->>>>>>> master
-    public void setAfinidadSolo(AfinidadElementalEnum afinidad) {
-        this.afinidades.clear();
-        this.afinidades.add(afinidad);
-    }
-<<<<<<< HEAD
-=======
+		this.afinidades.add(afinidad);
+	}
 
 	public Integer getEnergia() {
 		return energia;
@@ -104,8 +76,4 @@ public abstract class Criaturas {
 		this.afinidades = afinidades;
 	}
 
-    
-    
-
->>>>>>> master
 }

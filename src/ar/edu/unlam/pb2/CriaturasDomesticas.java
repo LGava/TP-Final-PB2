@@ -7,12 +7,9 @@ public class CriaturasDomesticas extends Criaturas{
 		super(nombre, afinidadElemental, comportamiento);
 	}
 
-<<<<<<< HEAD
-	@Override
-	public void entrenar(int intensidad) {
-=======
+
 	public void entrenar(Criaturas criatura, int intensidad) {
->>>>>>> master
+
 		
 		if (energia > 200) {
 			energia = 200;

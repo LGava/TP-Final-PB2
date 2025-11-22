@@ -21,11 +21,9 @@ public abstract class Transformaciones extends Criaturas {
 		return criatura.getComportamiento();
 	}
 
-<<<<<<< HEAD
-	public int getEnergia() {
-=======
+
 	public Integer getEnergia() {
->>>>>>> master
+
 		return criatura.getEnergía();
 	}
 

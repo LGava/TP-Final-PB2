@@ -1,30 +1,21 @@
 package ar.edu.unlam.pb2;
 
-<<<<<<< HEAD
-import java.util.HashMap;
-=======
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
->>>>>>> master
+
 
 public class Maestros {
 	protected String nombre;
 	protected Integer nivelDeMaestria;
 	protected AfinidadElementalEnum AfinidadElemental;
 	protected HashMap<String, Criaturas> criaturas = new HashMap<>();
-<<<<<<< HEAD
-	
-
-	public Maestros(String nombre, AfinidadElementalEnum afinidadElemental,
-			HashMap<String, Criaturas> criaturas) {
-=======
 	protected List<Maestros> maestros = new ArrayList<>();
 
 	public Maestros(String nombre, AfinidadElementalEnum afinidadElemental) {
->>>>>>> master
+
 		super();
 		this.nombre = nombre;
 		this.nivelDeMaestria = 0;
@@ -32,24 +23,6 @@ public class Maestros {
 		this.criaturas = criaturas;
 	}
 
-<<<<<<< HEAD
-	public void agregarCriatura(String nombre, Criaturas criatura) {
-
-		if (nombre == null || nombre.trim().isEmpty()) {
-			return;
-		}
-
-		if (criatura == null) {
-			return;
-		}
-
-		criaturas.put(nombre, criatura);
-	}
-
-	public void entrenar(Criaturas criatura, int intensidad) {
-		criatura.entrenar(intensidad);
-		nivelDeMaestria += 2;
-=======
 	public void agregarCriatura(Criaturas criatura) {
 	    if (criatura == null) return;
 	    
@@ -70,7 +43,6 @@ public class Maestros {
 		        this.nivelDeMaestria += 2;
 		    }
 		
->>>>>>> master
 	}
 
 	public void pacificar(Criaturas criatura) {
@@ -78,8 +50,7 @@ public class Maestros {
 			criatura.setComportamiento(ComportamientoEmocionalEnum.Tranquilo);
 		}
 	}
-<<<<<<< HEAD
-=======
+
 	
 	public void registrarMaestros(Maestros maestro) {
 		maestros.add(maestro);
@@ -114,6 +85,4 @@ public class Maestros {
 		
 	}
 
-	
->>>>>>> master
 }

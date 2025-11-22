@@ -2,11 +2,11 @@ package ar.edu.unlam.pb2;
 
 import java.util.Set;
 
-<<<<<<< HEAD
+
 public abstract class LlamaInterna extends Transformaciones {
-=======
+
 public class LlamaInterna extends Transformaciones {
->>>>>>> master
+
 
 	public LlamaInterna(Criaturas criatura) {
 		super(criatura);
