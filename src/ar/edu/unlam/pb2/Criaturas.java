@@ -15,13 +15,21 @@ public abstract class Criaturas {
 		super();
 		this.nombre = nombre;
 		this.energia = 0;
+<<<<<<< HEAD
 		this.comportamiento = comportamiento.Tranquilo;
+=======
+		this.comportamiento = ComportamientoEmocionalEnum.Tranquilo;
+>>>>>>> master
 		
 		this.afinidades.add(afinidadInicial);
 	}
 	
+<<<<<<< HEAD
 	// metodos
 	public abstract void entrenar(int intensidad);
+=======
+
+>>>>>>> master
 
 	// getters y setters
 	public String getNombre() {
@@ -58,14 +66,46 @@ public abstract class Criaturas {
         return afinidades;
     }
 
+<<<<<<< HEAD
     // agregar afinidades
     public void addAfinidad(AfinidadElementalEnum afinidad) {
         this.afinidades.add(afinidad);
     }
 
     // reemplazar TODAS por una
+=======
+    
+    public void addAfinidad(AfinidadElementalEnum afinidad) {
+        this.afinidades.add(afinidad);
+    }
+    
+
+>>>>>>> master
     public void setAfinidadSolo(AfinidadElementalEnum afinidad) {
         this.afinidades.clear();
         this.afinidades.add(afinidad);
     }
+<<<<<<< HEAD
+=======
+
+	public Integer getEnergia() {
+		return energia;
+	}
+
+	public void setEnergia(Integer energia) {
+		this.energia = energia;
+	}
+
+	public Set<AfinidadElementalEnum> getAfinidades() {
+		return afinidades;
+	}
+
+	public void setAfinidades(Set<AfinidadElementalEnum> afinidades) {
+		this.afinidades = afinidades;
+	}
+
+    
+    
+
+>>>>>>> master
 }
