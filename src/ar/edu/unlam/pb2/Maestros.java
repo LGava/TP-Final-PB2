@@ -6,7 +6,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-
 public class Maestros {
 	protected String nombre;
 	protected Integer nivelDeMaestria;
@@ -15,7 +14,6 @@ public class Maestros {
 	protected List<Maestros> maestros = new ArrayList<>();
 
 	public Maestros(String nombre, AfinidadElementalEnum afinidadElemental) {
-
 		super();
 		this.nombre = nombre;
 		this.nivelDeMaestria = 0;
@@ -50,7 +48,6 @@ public class Maestros {
 			criatura.setComportamiento(ComportamientoEmocionalEnum.Tranquilo);
 		}
 	}
-
 	
 	public void registrarMaestros(Maestros maestro) {
 		maestros.add(maestro);
@@ -85,4 +82,5 @@ public class Maestros {
 		
 	}
 
+	
 }

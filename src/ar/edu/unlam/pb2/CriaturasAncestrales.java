@@ -4,7 +4,6 @@ import java.util.HashMap;
 
 public class CriaturasAncestrales extends Criaturas{
 
-
 	public CriaturasAncestrales(String nombre, AfinidadElementalEnum afinidadElemental,
 			ComportamientoEmocionalEnum comportamiento) {
 		super(nombre, afinidadElemental, comportamiento);

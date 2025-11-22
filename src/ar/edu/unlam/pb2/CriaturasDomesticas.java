@@ -7,9 +7,7 @@ public class CriaturasDomesticas extends Criaturas{
 		super(nombre, afinidadElemental, comportamiento);
 	}
 
-
 	public void entrenar(Criaturas criatura, int intensidad) {
-
 		
 		if (energia > 200) {
 			energia = 200;

@@ -10,12 +10,10 @@ public class CriaturasSalvajes extends Criaturas {
 		super(nombre, afinidadElemental, comportamiento.Inestable);
 	}
 
-
 	public void entrenar(Criaturas criatura, int intensidad) throws UncheckedException {
 
 		int random = this.random.nextInt(5) + (10);
 		this.energia += (random * intensidad);
-
 
 		if (energia > 200) {
 			throw new UncheckedException("el nivel de energía no puede superar las 200 unidades");

@@ -21,9 +21,7 @@ public abstract class Transformaciones extends Criaturas {
 		return criatura.getComportamiento();
 	}
 
-
 	public Integer getEnergia() {
-
 		return criatura.getEnergía();
 	}
 

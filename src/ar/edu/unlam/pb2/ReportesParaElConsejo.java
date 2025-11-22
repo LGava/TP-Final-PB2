@@ -1,4 +1,5 @@
 package ar.edu.unlam.pb2;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
@@ -14,7 +15,9 @@ public class ReportesParaElConsejo {
 			criatura.addAll(maestro.getCriaturasMap().values());
 		}
 		return criatura;
+
 	}
+
 	// Obtener la criatura con mayor energía total.
 	public Criaturas criaturaConMayorEnergiaTotal(HashMap<String, Maestros> maestros) {
 
@@ -93,4 +96,3 @@ public class ReportesParaElConsejo {
 	}
 
 }
-
