@@ -3,13 +3,34 @@ package ar.edu.unlam.pb2;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
+import java.util.Set;
 
-public class Maestros {
+public class Maestros implements Pacificar{
+	@Override
+	public int hashCode() {
+		return Objects.hash(nombre);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Maestros other = (Maestros) obj;
+		return Objects.equals(nombre, other.nombre);
+	}
+
+
 	protected String nombre;
 	protected Integer nivelDeMaestria;
-	protected AfinidadElementalEnum AfinidadElemental;
+	protected Set<AfinidadElementalEnum> AfinidadElemental = new HashSet<>();
 	protected HashMap<String, Criaturas> criaturas = new HashMap<>();
 	protected List<Maestros> maestros = new ArrayList<>();
 
@@ -17,48 +38,37 @@ public class Maestros {
 		super();
 		this.nombre = nombre;
 		this.nivelDeMaestria = 0;
-		AfinidadElemental = afinidadElemental;
+		this.AfinidadElemental.add(afinidadElemental);
 		this.criaturas = criaturas;
 	}
 
 	public void agregarCriatura(Criaturas criatura) {
-	    if (criatura == null) return;
-	    
-	    this.criaturas.put(criatura.getNombre(), criatura);
+	    if (criatura != null) {
+	    	this.criaturas.put(criatura.getNombre(), criatura);
+	    }
 	}
 
 	public void entrenar(Criaturas criatura, int intensidad) {
-		    if (criatura != null) {
-
-		        int energiaActual = criatura.getEnergia(); 
-		        
-
-		        int nuevaEnergia = energiaActual + intensidad; 
-		        
-
-		        criatura.setEnergia(nuevaEnergia);
-
-		        this.nivelDeMaestria += 2;
-		    }
-		
+		    	criatura.entrenar(criatura, intensidad);
+		    	
+		    	if(criatura.getAfinidadElemental() == this.AfinidadElemental) {
+		    		nivelDeMaestria += 10;
+		    	}else {
+				    this.nivelDeMaestria += 5;
+			    }
+		    	if(nivelDeMaestria >= 20) {
+	    			AfinidadElemental.addAll(criatura.getAfinidadElemental());
+	    			nivelDeMaestria = 0;
+			    
+		    }    
+	}
+ 
+	public Integer getNivelDeMaestria() {
+		return nivelDeMaestria;
 	}
 
-	public void pacificar(Criaturas criatura) {
-		if (criatura.getComportamiento() == ComportamientoEmocionalEnum.Inestable) {
-			criatura.setComportamiento(ComportamientoEmocionalEnum.Tranquilo);
-		}
-	}
-	
-	public void registrarMaestros(Maestros maestro) {
-		maestros.add(maestro);
-	}
-
-	public List<Maestros> getMaestros() {
-		return maestros;
-	}
-
-	public void setMaestros(List<Maestros> maestros) {
-		this.maestros = maestros;
+	public void setNivelDeMaestria(Integer nivelDeMaestria) {
+		this.nivelDeMaestria = nivelDeMaestria;
 	}
 
 	public HashMap<String, Criaturas> getCriaturasMap() {
@@ -78,8 +88,17 @@ public class Maestros {
 	}
 
 	public void transformar(Criaturas criatura, Transformaciones transformacion) {
-		criaturas.put(criatura.getNombre(), transformacion);
-		
+		criaturas.put(criatura.getNombre(), transformacion);	
+	}
+
+	public Set<AfinidadElementalEnum> getAfinidadElemental() {
+		return AfinidadElemental;
+	}
+
+
+	@Override
+	public void pacificar(Criaturas criatura, Integer nivelDeMaestria) {
+		criatura.pacificar(criatura, nivelDeMaestria);
 	}
 
 	

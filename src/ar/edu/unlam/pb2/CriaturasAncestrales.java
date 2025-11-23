@@ -4,26 +4,31 @@ import java.util.HashMap;
 
 public class CriaturasAncestrales extends Criaturas{
 
-	public CriaturasAncestrales(String nombre, AfinidadElementalEnum afinidadElemental,
-			ComportamientoEmocionalEnum comportamiento) {
-		super(nombre, afinidadElemental, comportamiento);
+	public CriaturasAncestrales(String nombre, AfinidadElementalEnum afinidadElemental) {
+		super(nombre, afinidadElemental);
+		this.comportamiento = comportamiento.Tranquilo;
+		this.energia = 100;
 	}
 
+	@Override
 	public void entrenar(Criaturas criatura, int intensidad) {
+		int nuevaEnergia = criatura.getEnergía();
 		
-		if(intensidad > 5) {
-			energia -= 10;
-			this.comportamiento = comportamiento.Inestable;
+		if(intensidad >= 5) {
+			nuevaEnergia -= (5 * intensidad);
+			ComportamientoEmocionalEnum comportamientoNuevo = ComportamientoEmocionalEnum.Inestable;
+			criatura.setComportamiento(comportamientoNuevo);
 		} 
 		else {
-			energia += (10 * intensidad);
+			nuevaEnergia += (10 * intensidad);		
+		}
+		if (nuevaEnergia < 100) {
+			nuevaEnergia = 100;
+		}
+		if (nuevaEnergia > 200) {
+			nuevaEnergia = 200;
 		}
 		
-		if (energia < 100) {
-			energia = 100;
-		}
-		if (energia > 200) {
-			energia = 200;
-		}
+		criatura.setEnergía(nuevaEnergia);
 	}
 }

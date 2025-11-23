@@ -49,6 +49,7 @@ public class ReportesParaElConsejo {
 				}
 			}
 		}
+		
 		return criaturasTotales[criaturasTotales.length - 1];
 	}
 

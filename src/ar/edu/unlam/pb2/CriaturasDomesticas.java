@@ -2,17 +2,30 @@ package ar.edu.unlam.pb2;
 
 public class CriaturasDomesticas extends Criaturas{
 
-	public CriaturasDomesticas(String nombre, AfinidadElementalEnum afinidadElemental, 
-			ComportamientoEmocionalEnum comportamiento) {
-		super(nombre, afinidadElemental, comportamiento);
+	public CriaturasDomesticas(String nombre, AfinidadElementalEnum afinidadElemental) {
+		super(nombre, afinidadElemental);
+		this.comportamiento = comportamiento.Tranquilo;
+		
 	}
 
+	@Override
 	public void entrenar(Criaturas criatura, int intensidad) {
+		int energiaBase = criatura.getEnergía();
 		
-		if (energia > 200) {
-			energia = 200;
+		int nuevaEnergia = energiaBase + (5 * intensidad);
+		if (nuevaEnergia > 200) {
+			nuevaEnergia = 200;
 		}
-		this.energia += (5 * intensidad);
+		criatura.setEnergía(nuevaEnergia);
+	}
+	
+	@Override
+	public void setComportamiento(ComportamientoEmocionalEnum comportamiento) {
+	    if (this.comportamiento == ComportamientoEmocionalEnum.Inestable) {
+	        this.comportamiento = ComportamientoEmocionalEnum.Tranquilo;
+	    } else {
+	    	this.comportamiento = ComportamientoEmocionalEnum.Tranquilo;
+	    }
 	}
 
 }

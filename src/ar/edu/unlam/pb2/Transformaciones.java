@@ -6,16 +6,11 @@ public abstract class Transformaciones extends Criaturas {
 
 	public Transformaciones(Criaturas criatura) {
 		super(criatura.getNombre(), 
-				criatura.getAfinidadElemental().iterator().next(),
-				criatura.getComportamiento());
+				criatura.getAfinidadElemental().iterator().next());
 		this.criatura = criatura;
 	}
 
 	protected Criaturas criatura;
-
-	public Set<AfinidadElementalEnum> getAfinidad() {
-        return criatura.getAfinidadElemental();
-    }
 
 	public ComportamientoEmocionalEnum esInestable() {
 		return criatura.getComportamiento();
@@ -27,5 +22,4 @@ public abstract class Transformaciones extends Criaturas {
 
 	public abstract void transformacion(Criaturas criatura);
 
-	
 }

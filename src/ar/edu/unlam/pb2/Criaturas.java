@@ -3,15 +3,14 @@ package ar.edu.unlam.pb2;
 import java.util.HashSet;
 import java.util.Set;
 
-public abstract class Criaturas {
+public abstract class Criaturas implements Entrenar{
 
 	protected String nombre;
 	protected Integer energia;
-	protected Set<AfinidadElementalEnum> afinidades = new HashSet<>();
+	protected Set<AfinidadElementalEnum> afinidades = new HashSet<>(2);
 	protected ComportamientoEmocionalEnum comportamiento;
 
-	public Criaturas(String nombre, AfinidadElementalEnum afinidadInicial,
-			ComportamientoEmocionalEnum comportamiento) {
+	public Criaturas(String nombre, AfinidadElementalEnum afinidadInicial) {
 		super();
 		this.nombre = nombre;
 		this.energia = 0;
@@ -21,8 +20,8 @@ public abstract class Criaturas {
 	}
 	
 
-
 	// getters y setters
+	
 	public String getNombre() {
 		return nombre;
 	}
@@ -44,6 +43,7 @@ public abstract class Criaturas {
 	public void setEnergía(Integer energía) {
 		this.energia = energía;
 	}
+	
 
 	public ComportamientoEmocionalEnum getComportamiento() {
 		return comportamiento;
@@ -57,24 +57,11 @@ public abstract class Criaturas {
         return afinidades;
     }
 
-    
-    public void addAfinidad(AfinidadElementalEnum afinidad) {
-        this.afinidades.add(afinidad);
-    }
-    
-
     public void setAfinidadSolo(AfinidadElementalEnum afinidad) {
         this.afinidades.clear();
         this.afinidades.add(afinidad);
     }
 
-	public Integer getEnergia() {
-		return energia;
-	}
-
-	public void setEnergia(Integer energia) {
-		this.energia = energia;
-	}
 
 	public Set<AfinidadElementalEnum> getAfinidades() {
 		return afinidades;
@@ -84,7 +71,18 @@ public abstract class Criaturas {
 		this.afinidades = afinidades;
 	}
 
-    
-    
+	@Override
+	public void entrenar(Criaturas criatura, int intensidad) {
+		int nuevaEnergia = energia + intensidad;
+		criatura.setEnergía(nuevaEnergia);
+	}
+	
+	public void pacificar (Criaturas criatura, Integer nivelDeMaestria) {
+		if(criatura.getComportamiento() == ComportamientoEmocionalEnum.Inestable) {
+			if(nivelDeMaestria >= 10) {
+				criatura.setComportamiento(comportamiento.Tranquilo);
+			}
+		}
+	}
 
 }
